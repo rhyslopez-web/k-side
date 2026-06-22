@@ -47,9 +47,9 @@ const faqs = [
       <source src="/hero-video.mov" type="video/mp4" />
     </video>
 
-    <!-- Centred hero logo -->
+    <!-- Centred hero logo — fades in on load -->
     <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; pointer-events: none;">
-      <img src="/images/logo.png" alt="K-SIDE Hair Salon" style="height: clamp(60px, 10vw, 120px); width: auto; filter: brightness(0) invert(1); opacity: 0.9;" />
+      <img src="/images/hero-logo.png" alt="K-SIDE Hair Salon" style="height: clamp(60px, 10vw, 120px); width: auto; animation: heroLogoFade 1.4s ease forwards;" />
     </div>
 
     <div style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 65px 40px; max-width: 1400px; margin: 0 auto; box-sizing: border-box;">
@@ -144,7 +144,7 @@ const faqs = [
     </div>
     <!-- Scrollable carousel -->
     <div id="gallery-carousel" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 2px; padding-bottom: 0;">
-      {['inside1', 'inside2', 'inside3', '1', '2', '3', '4', '5'].map(name => (
+      {['inside2', 'inside3', '1', '2', '4', '5', '6', '7', 'review'].map(name => (
         <div class="gallery-slide" style="flex: 0 0 calc(33.33% - 2px); scroll-snap-align: start; aspect-ratio: 1/1; overflow: hidden;">
           <img src={`/images/${name}.png`} alt="K-SIDE salon" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
         </div>
@@ -180,18 +180,15 @@ const faqs = [
     <div class="testimonials-grid" style="position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 80px 40px; box-sizing: border-box; display: grid; grid-template-columns: 2fr 3fr; gap: 80px; align-items: start;">
 
       <!-- Left: heading + paragraph + CTA -->
-      <div style="display: flex; flex-direction: column; min-height: 420px; justify-content: space-between;">
-        <div>
-          <p style="font-size: 12px; font-weight: 400; color: #FEBF00; letter-spacing: 0.01em; text-transform: uppercase; margin: 0 0 20px; font-family: var(--font-basegrotesk);">Google Reviews</p>
-          <h2 style="font-size: clamp(32px, 3.5vw, 50px); font-weight: 300; color: #fff; line-height: 1.17; letter-spacing: 0.01em; margin: 0 0 24px; font-family: var(--font-basegrotesk);">
-            What our clients say.
-          </h2>
-          <p style="font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.6; letter-spacing: 0.01em; margin: 0; font-family: var(--font-basegrotesk);">
-            Real experiences from clients at K-SIDE Hair Salon in Burnaby, BC.
-          </p>
-        </div>
-
-        <!-- CTA at bottom left -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 12px; font-weight: 400; color: #FEBF00; letter-spacing: 0.01em; text-transform: uppercase; margin: 0; font-family: var(--font-basegrotesk);">Google Reviews</p>
+        <h2 style="font-size: clamp(32px, 3.5vw, 50px); font-weight: 300; color: #fff; line-height: 1.17; letter-spacing: 0.01em; margin: 0; font-family: var(--font-basegrotesk);">
+          What our clients say.
+        </h2>
+        <p style="font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.6; letter-spacing: 0.01em; margin: 0; font-family: var(--font-basegrotesk);">
+          Real experiences from clients at K-SIDE Hair Salon in Burnaby, BC.
+        </p>
+        <!-- CTA directly below paragraph -->
         <a
           href="https://www.google.com/search?q=K-SIDE+Hair+Salon+Burnaby#lrd=0x548676b34e5cb0fb:0x5a1a1a1a1a1a1a1a,3"
           target="_blank"
@@ -357,6 +354,11 @@ const faqs = [
   </script>
 
   <style>
+    @keyframes heroLogoFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 0.9; transform: translateY(0); }
+    }
+
     #gallery-carousel::-webkit-scrollbar { display: none; }
 
     @media (max-width: 767px) {

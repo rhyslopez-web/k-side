@@ -53,5 +53,12 @@ const fullTitle = title === 'K-SIDE' ? 'K-SIDE Hair Salon' : `${title} | K-SIDE 
   </head>
   <body>
     <slot />
+    <script>
+      const ho = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('hv'); ho.unobserve(e.target); } }),
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll('h1, h2').forEach(el => ho.observe(el));
+    </script>
   </body>
 </html>
