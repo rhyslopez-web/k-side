@@ -55,18 +55,18 @@ const navLinks = [
   </nav>
 </header>
 
-<!-- Mobile full-screen drawer — covers entire viewport -->
+<!-- Mobile full-screen drawer — slides in from right -->
 <div
   id="mobile-menu"
-  style="display: none; position: fixed; inset: 0; z-index: 49; background: #fff; flex-direction: column; justify-content: space-between; padding: 100px 32px 48px;"
+  style="position: fixed; inset: 0; z-index: 49; background: #fff; flex-direction: column; justify-content: space-between; align-items: center; padding: 100px 32px 48px; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); display: flex;"
 >
-  <!-- Nav links -->
-  <div style="display: flex; flex-direction: column;">
+  <!-- Nav links — centred -->
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
     {navLinks.map(link => (
       <a
         href={link.href}
         class="mobile-nav-link"
-        style="font-size: 36px; font-weight: 300; color: #000; text-decoration: none; padding: 18px 0; border-bottom: 1px solid #000; letter-spacing: 0.01em; font-family: var(--font-basegrotesk);"
+        style="font-size: 36px; font-weight: 300; color: #000; text-decoration: none; padding: 18px 0; letter-spacing: 0.01em; font-family: var(--font-basegrotesk); text-align: center; width: 100%;"
       >
         {link.label}
       </a>
@@ -79,7 +79,7 @@ const navLinks = [
     target="_blank"
     rel="noopener noreferrer"
     class="btn-primary"
-    style="font-size: 16px; justify-content: center; width: 100%; box-sizing: border-box;"
+    style="font-size: 16px; justify-content: center; width: 100%; box-sizing: border-box; padding: 20px 28px;"
   >
     Book an Appointment
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -140,7 +140,7 @@ const navLinks = [
 
   function openMenu() {
     open = true;
-    menu.style.display = 'flex';
+    menu.style.transform = 'translateX(0)';
     hamburger.style.display = 'none';
     close.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -148,7 +148,7 @@ const navLinks = [
 
   function closeMenu() {
     open = false;
-    menu.style.display = 'none';
+    menu.style.transform = 'translateX(100%)';
     hamburger.style.display = 'block';
     close.style.display = 'none';
     document.body.style.overflow = '';

@@ -68,7 +68,7 @@ body {
   background: var(--color-primary);
   color: var(--color-lamp-black);
   border-radius: 54px;
-  padding: 8px 22px;
+  padding: 14px 28px;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -85,7 +85,7 @@ body {
   color: var(--color-lamp-black);
   border-radius: 54px;
   border: 1px solid var(--color-lamp-black);
-  padding: 8px 22px;
+  padding: 14px 28px;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -101,7 +101,7 @@ body {
   background: var(--color-bone-white);
   color: var(--color-lamp-black);
   border-radius: 54px;
-  padding: 8px 22px;
+  padding: 14px 28px;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;

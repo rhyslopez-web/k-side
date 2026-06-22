@@ -61,8 +61,7 @@ const grouped = Object.fromEntries(
         <div id={`service-category-${i}`} style="padding: 60px 0; border-bottom: 1px solid #000;">
           <!-- Category heading -->
           <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px;">
-            <div style="display: flex; align-items: baseline; gap: 16px;">
-              <span style="font-size: 12px; font-weight: 400; color: #FEBF00; letter-spacing: 0.01em; font-family: var(--font-basegrotesk);">0{i + 1}</span>
+            <div>
               <h2 style="font-size: 32px; font-weight: 300; color: #000; line-height: 1.2; letter-spacing: 0.01em; margin: 0; font-family: var(--font-basegrotesk);">{category}</h2>
             </div>
             <span style="font-size: 12px; font-weight: 300; color: #ababab; letter-spacing: 0.01em; font-family: var(--font-basegrotesk);">{grouped[category].length} {grouped[category].length === 1 ? 'service' : 'services'}</span>
